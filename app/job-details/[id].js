@@ -6,6 +6,7 @@ import {
   ScrollView,
   ActivityIndicator,
   RefreshControl,
+  Share,
 } from "react-native";
 import { Stack, useRouter, useSearchParams } from "expo-router";
 
@@ -67,6 +68,16 @@ const JobDetails = () => {
     }
   };
 
+  const shareUrl = async (url) => {
+    try {
+      await Share.share({
+        message: url,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
       <Stack.Screen
@@ -83,7 +94,16 @@ const JobDetails = () => {
             />
           ),
           headerRight: () => (
-            <ScreenHeaderBtn iconUrl={icons.share} dimension="60%" />
+            <ScreenHeaderBtn
+              iconUrl={icons.share}
+              dimension="60%"
+              handlePress={() =>
+                shareUrl(
+                  data[0]?.job_google_link ??
+                    "https://careers.google.com/jobs/results/"
+                )
+              }
+            />
           ),
         }}
       />
@@ -118,6 +138,11 @@ const JobDetails = () => {
           )}
         </ScrollView>
       </>
+      <JobFooter
+        url={
+          data[0]?.job_google_link ?? "https://careers.google.com/jobs/results/"
+        }
+      />
     </SafeAreaView>
   );
 };

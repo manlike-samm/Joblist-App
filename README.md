@@ -1,15 +1,42 @@
-# Expo Router Example
+# JOBLIST
 
-Use [`expo-router`](https://expo.github.io/router) to build native navigation using files in the `app/` directory.
+# Job listing app made with react native.
 
 ## 🚀 How to use
 
+1. Clone this repo.
+2. Run
+
 ```sh
-npx create-react-native-app -t with-router
+yarn install
 ```
 
-## 📝 Notes
+or
 
-- [Expo Router: Docs](https://expo.github.io/router)
-- [Expo Router: Repo](https://github.com/expo/router)
-- [Request for Comments](https://github.com/expo/router/discussions/1)
+```sh
+npm install
+```
+
+to install deps.
+
+3. Visit [rapidapi](https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch) to create an account and get your API_KEY free.
+4. Run
+
+```sh
+yarn start
+```
+
+or
+
+```sh
+npm start
+```
+
+to start your expo server. 5. Scan your QR code and Happy coding.
+
+## 📝 Features not working yet
+
+- Like button
+- Share Job button(working 30-04)
+- Menu button
+- Profile Icon button
